@@ -1,0 +1,462 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fighter Profile: William Kärnsby</title>
+            
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
+            .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+            h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+            .stats { display: flex; justify-content: space-around; margin-bottom: 20px; background: #ecf0f1; padding: 15px; border-radius: 5px; flex-wrap: wrap; }
+            .stat-box { text-align: center; margin: 5px; }
+            .stat-value { font-size: 24px; font-weight: bold; color: #2980b9; }
+            .stat-label { font-size: 14px; color: #7f8c8d; }
+            .event { margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 5px; overflow: hidden; }
+            .event-header { background: #34495e; color: #fff; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+            .event-name-container { display: flex; align-items: center; gap: 10px; }
+            .event-name { font-weight: bold; font-size: 18px; }
+            .event-date { font-size: 14px; color: #bdc3c7; }
+            .info-icon { background: rgba(255,255,255,0.2); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; justify-content: center; align-items: center; font-size: 14px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+            .info-icon:hover { background: rgba(255,255,255,0.4); }
+            .event-comment { display: none; background: #fff3cd; color: #856404; padding: 10px 15px; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+            .table-wrapper { overflow-x: auto; }
+            table { width: 100%; border-collapse: collapse; min-width: 500px; }
+            th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background-color: #f8f9fa; color: #2c3e50; }
+            tr:last-child td { border-bottom: none; }
+            .result-won { color: #27ae60; font-weight: bold; }
+            .result-lost { color: #c0392b; font-weight: bold; }
+            a { color: #3498db; text-decoration: none; }
+            a:hover { text-decoration: underline; }
+            
+            @media (max-width: 600px) {
+                body { padding: 10px; }
+                .container { padding: 15px; }
+                h1 { font-size: 24px; }
+                .event-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+                .event-name-container { width: 100%; justify-content: space-between; }
+                .event-date { font-size: 13px; }
+                th, td { padding: 10px; font-size: 14px; }
+            }
+        </style>
+        <script>
+            function toggleComment(id) {
+                var x = document.getElementById(id);
+                if (x.style.display === "none" || x.style.display === "") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+        
+        </head>
+        <body>
+            <div class="container">
+                <h1><a href="https://smoothcomp.com/en/profile/528220" target="_blank">William Kärnsby</a></h1>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Wins</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">13</div>
+                        <div class="stat-label">Losses</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Walkovers</div>
+                    </div>
+                </div>
+                
+                <h2>Match History</h2>
+        
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Banzai Open 2025</span>
+                            
+                        </div>
+                        <span class="event-date">2025-04-12</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/150776" target="_blank">Kalle Bjurling</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Full Ippon - 01:43 - Round 1</td>
+                                    <td><a href="https://youtu.be/x_Ab1EpDxKw?t=14871" target="_blank">A-53</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Banzai Open 2024</span>
+                            
+                        </div>
+                        <span class="event-date">2024-04-27</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/558705" target="_blank">Marcus Mikulic</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Decision - 03:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/ltYwuAmHOyo?t=15570" target="_blank">B-53</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/558705" target="_blank">Marcus Mikulic</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Decision - 03:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/ltYwuAmHOyo?t=16098" target="_blank">B-56</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/558705" target="_blank">Marcus Mikulic</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Disqualification (disqualification) - 00:12 - Round 1</td>
+                                    <td><a href="https://youtu.be/ltYwuAmHOyo?t=16859" target="_blank">B-59</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Kyokushin SM 2024</span>
+                            
+                        </div>
+                        <span class="event-date">2024-02-24</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/173006" target="_blank">Oscar Söderström</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Decision - 02:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/uR92jME0Qp4?t=10047" target="_blank">A-22</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/858095" target="_blank">Victor Jonevall</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Full Ippon - 02:31 - Round 2</td>
+                                    <td><a href="https://youtu.be/uR92jME0Qp4?t=15233" target="_blank">A-37</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Nordic Open 2024</span>
+                            
+                        </div>
+                        <span class="event-date">2024-01-26</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/714524" target="_blank">Martin Leander Oppermann Rotherud</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by points - 02:00 - Round 1</td>
+                                    <td><a href="https://youtu.be/gRqJAAIqeQ8?t=15704" target="_blank">C65</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/558705" target="_blank">Marcus Mikulic</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by points - 03:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/gRqJAAIqeQ8?t=16474" target="_blank">C69</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Nordic Open 2023</span>
+                            
+                        </div>
+                        <span class="event-date">2023-01-28</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/933688" target="_blank">Ruben Gjelseth</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by points - 02:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/auqrOwHvgfg?t=19343" target="_blank">A60</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/225610" target="_blank">Hampus Almroth</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Full Ippon - 01:56 - Round 1</td>
+                                    <td><a href="https://youtu.be/auqrOwHvgfg?t=20840" target="_blank">A67</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/938804" target="_blank">Eljar Nikolai Gåsland</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Full Ippon - 00:47 - Round 1</td>
+                                    <td><a href="https://youtu.be/auqrOwHvgfg?t=22470" target="_blank">A77</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/942291" target="_blank">Tim Tran</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Decision - 02:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/auqrOwHvgfg?t=22954" target="_blank">A81</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/712048" target="_blank">Sigurd Hornnes</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by points - 01:23 - Round 1</td>
+                                    <td><a href="https://youtu.be/auqrOwHvgfg?t=23791" target="_blank">A84</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Kyokushin SM 2022</span>
+                            <span class="info-icon" onclick="toggleComment('comment_5')">i</span>
+                        </div>
+                        <span class="event-date">2022-06-30</span>
+                    </div>
+                    <div id="comment_5" class="event-comment"> Ingen video finns</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/17035" target="_blank">Alexander Karlquist</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by points - 03:00</td>
+                                    <td>1-4</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Stora Höga Open 2022 Kyokushin Kumite</span>
+                            <span class="info-icon" onclick="toggleComment('comment_6')">i</span>
+                        </div>
+                        <span class="event-date">2022-05-14</span>
+                    </div>
+                    <div id="comment_6" class="event-comment">Endast Keikos matcher har videos</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/714524" target="_blank">Martin Leander Oppermann Rotherud</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Decision - 03:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/cxbgOAfPxhc?t=15981" target="_blank">A59</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/400206" target="_blank">David Amerson</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by points - 02:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/cxbgOAfPxhc?t=18969" target="_blank">A65</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/234354" target="_blank">Marcus Mikulic</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Decision - 02:00 - Round 2</td>
+                                    <td><a href="https://youtu.be/cxbgOAfPxhc?t=19687" target="_blank">A67</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Okawa Cup 2021 Kata/Kumite</span>
+                            <span class="info-icon" onclick="toggleComment('comment_7')">i</span>
+                        </div>
+                        <span class="event-date">2021-11-06</span>
+                    </div>
+                    <div id="comment_7" class="event-comment">Ingen video finns</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/562278" target="_blank">Adam Flensburg</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Decision - Round 3</td>
+                                    <td>1-53</td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/529706" target="_blank">Daniell Backlund</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Decision - Round 2</td>
+                                    <td>1-56</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Kyokushin SM 2021</span>
+                            
+                        </div>
+                        <span class="event-date">2021-09-25</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/173006" target="_blank">Oscar Söderström</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by points - Round 2</td>
+                                    <td><a href="https://youtu.be/I9S1dBNwEis?t=3160" target="_blank">A6</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/230535" target="_blank">Baasil Saqib</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Decision - Round 2</td>
+                                    <td><a href="https://youtu.be/24GLbY5an5M?t=458" target="_blank">F4</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+            </div>
+        </body>
+        </html>
+        

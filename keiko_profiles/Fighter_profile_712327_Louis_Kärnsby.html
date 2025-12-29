@@ -1,0 +1,401 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fighter Profile: Louis Kärnsby</title>
+            
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
+            .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+            h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+            .stats { display: flex; justify-content: space-around; margin-bottom: 20px; background: #ecf0f1; padding: 15px; border-radius: 5px; flex-wrap: wrap; }
+            .stat-box { text-align: center; margin: 5px; }
+            .stat-value { font-size: 24px; font-weight: bold; color: #2980b9; }
+            .stat-label { font-size: 14px; color: #7f8c8d; }
+            .event { margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 5px; overflow: hidden; }
+            .event-header { background: #34495e; color: #fff; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+            .event-name-container { display: flex; align-items: center; gap: 10px; }
+            .event-name { font-weight: bold; font-size: 18px; }
+            .event-date { font-size: 14px; color: #bdc3c7; }
+            .info-icon { background: rgba(255,255,255,0.2); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; justify-content: center; align-items: center; font-size: 14px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+            .info-icon:hover { background: rgba(255,255,255,0.4); }
+            .event-comment { display: none; background: #fff3cd; color: #856404; padding: 10px 15px; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+            .table-wrapper { overflow-x: auto; }
+            table { width: 100%; border-collapse: collapse; min-width: 500px; }
+            th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background-color: #f8f9fa; color: #2c3e50; }
+            tr:last-child td { border-bottom: none; }
+            .result-won { color: #27ae60; font-weight: bold; }
+            .result-lost { color: #c0392b; font-weight: bold; }
+            a { color: #3498db; text-decoration: none; }
+            a:hover { text-decoration: underline; }
+            
+            @media (max-width: 600px) {
+                body { padding: 10px; }
+                .container { padding: 15px; }
+                h1 { font-size: 24px; }
+                .event-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+                .event-name-container { width: 100%; justify-content: space-between; }
+                .event-date { font-size: 13px; }
+                th, td { padding: 10px; font-size: 14px; }
+            }
+        </style>
+        <script>
+            function toggleComment(id) {
+                var x = document.getElementById(id);
+                if (x.style.display === "none" || x.style.display === "") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+        
+        </head>
+        <body>
+            <div class="container">
+                <h1><a href="https://smoothcomp.com/en/profile/712327" target="_blank">Louis Kärnsby</a></h1>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-value">7</div>
+                        <div class="stat-label">Wins</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">9</div>
+                        <div class="stat-label">Losses</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Walkovers</div>
+                    </div>
+                </div>
+                
+                <h2>Match History</h2>
+        
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Banzai Open 2025</span>
+                            
+                        </div>
+                        <span class="event-date">2025-04-12</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/963911" target="_blank">Joel Palmblad</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Full Ippon - 01:30 - Round 2</td>
+                                    <td><a href="https://youtu.be/x_Ab1EpDxKw?t=4029" target="_blank">A-20</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/1767254" target="_blank">Salem Salkic</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Walkover - Round 1</td>
+                                    <td>-</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Nordic Open 2025</span>
+                            
+                        </div>
+                        <span class="event-date">2025-01-24</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/337695" target="_blank">Hjalmar Rosell</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Decision - 01:30 - Round 2</td>
+                                    <td><a href="https://youtu.be/oeYGI_cC9Rs?t=2157" target="_blank">B14</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/868947" target="_blank">William Schönemann</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Disqualification (disqualification) - 00:07 - Round 1</td>
+                                    <td><a href="https://youtu.be/oeYGI_cC9Rs?t=3067" target="_blank">B19</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/1519729" target="_blank">Vale Johansson</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Walkover - Round 1</td>
+                                    <td>-</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Banzai Open 2024</span>
+                            
+                        </div>
+                        <span class="event-date">2024-04-27</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/343911" target="_blank">Elis Siira</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Full Ippon - 00:42 - Round 1</td>
+                                    <td><a href="https://youtu.be/s4VVHgOdYYA?t=3631" target="_blank">A-18</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/698094" target="_blank">Anastasios Triantafyllidis</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Walkover - Round 1</td>
+                                    <td>-</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Nordic Open 2024</span>
+                            
+                        </div>
+                        <span class="event-date">2024-01-26</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/337695" target="_blank">Hjalmar Rosell</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by points - 01:30 - Round 1</td>
+                                    <td><a href="https://youtu.be/PgixblTgU4g?t=3234" target="_blank">A14</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/1366889" target="_blank">Felix Haanpää</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Full Ippon - 01:09 - Round 1</td>
+                                    <td><a href="https://youtu.be/PgixblTgU4g?t=3813" target="_blank">A16</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Okawa Cup 2023 Kata/Kumite</span>
+                            <span class="info-icon" onclick="toggleComment('comment_4')">i</span>
+                        </div>
+                        <span class="event-date">2023-11-04</span>
+                    </div>
+                    <div id="comment_4" class="event-comment">Ingen video finns</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/871099" target="_blank">Dirhat Sadik</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Full Ippon - 01:15 - Round 1</td>
+                                    <td>17</td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/871099" target="_blank">Dirhat Sadik</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Decision - 01:30 - Round 2</td>
+                                    <td>18</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Nordic Open 2023</span>
+                            
+                        </div>
+                        <span class="event-date">2023-01-28</span>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/393349" target="_blank">Ville Dahlberg</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Walkover - 00:27 - Round 1</td>
+                                    <td>-</td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/938907" target="_blank">Tarik Sokol</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Walkover - Round 1</td>
+                                    <td>-</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Okawa Cup 2022 Kata/Kumite</span>
+                            <span class="info-icon" onclick="toggleComment('comment_6')">i</span>
+                        </div>
+                        <span class="event-date">2022-11-12</span>
+                    </div>
+                    <div id="comment_6" class="event-comment">I praktiken omöjligt att hitta videos</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/872918" target="_blank">Åsa Joensuu</a></td>
+                                    <td class="result-won">WON</td>
+                                    <td>Won by Decision - 01:30 - Round 2</td>
+                                    <td>24</td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="event">
+                    <div class="event-header">
+                        <div class="event-name-container">
+                            <span class="event-name">Stora Höga Open 2022 Kyokushin Kumite</span>
+                            <span class="info-icon" onclick="toggleComment('comment_7')">i</span>
+                        </div>
+                        <span class="event-date">2022-05-14</span>
+                    </div>
+                    <div id="comment_7" class="event-comment">Endast Keikos matcher har videos</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Opponent</th>
+                                    <th>Result</th>
+                                    <th>Method</th>
+                                    <th>Match Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/702001" target="_blank">Douglas Ihrlund</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by points - 01:30 - Round 2</td>
+                                    <td><a href="https://youtu.be/Zjj_iXU-uyI?t=5033" target="_blank">C7</a></td>
+                                </tr>
+                
+                                <tr>
+                                    <td><a href="https://smoothcomp.com/en/profile/395421" target="_blank">Thor Lieu</a></td>
+                                    <td class="result-lost">LOST</td>
+                                    <td>Lost by Decision - 02:30 - Round 2</td>
+                                    <td><a href="https://youtu.be/Zjj_iXU-uyI?t=7059" target="_blank">C17</a></td>
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+            </div>
+        </body>
+        </html>
+        
