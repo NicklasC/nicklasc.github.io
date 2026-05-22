@@ -12,7 +12,7 @@ globalThis.jsConnect = async function(appId, args, dartOnMessage) {
     };
     console.log(`Starting up Python worker: ${appId}, args: ${args}`);
     _apps[appId] = app;
-    app.worker = new Worker("python-worker.js");
+    app.worker = new Worker((flet.assetBase || "") + "python-worker.js");
 
     var error;
     app.worker.onmessage = (event) => {
