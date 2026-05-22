@@ -1,9 +1,9 @@
 'use strict';
 
-// Persistent Service Worker for Gumlis Checklist
+// Persistent Service Worker for Gumli
 // Satisfies PWA criteria to allow installing as a standalone app with a home screen icon.
 
-const CACHE_NAME = 'gumlis-checklist-v2';
+const CACHE_NAME = 'gumli-v2';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();

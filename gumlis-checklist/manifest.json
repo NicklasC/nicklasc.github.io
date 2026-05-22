@@ -1,11 +1,11 @@
 {
-  "name": "Gumlis Checklist",
-  "short_name": "Gumlis Checklist",
+  "name": "Gumli",
+  "short_name": "Gumli",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0C100D",
   "theme_color": "#10B981",
-  "description": "Gumlis Checklist",
+  "description": "Gumli",
   "orientation": "natural",
   "prefer_related_applications": false,
   "icons": [
