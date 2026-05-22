@@ -26,6 +26,12 @@ globalThis.jsConnect = async function(appId, args, dartOnMessage) {
         }
     };
 
+    app.worker.onerror = (event) => {
+        console.error("Worker error:", event);
+        error = "Python worker error: " + (event.message || "Failed to load worker script or importScripts inside worker");
+        app.onPythonInitialized();
+    };
+
     let pythonInitialized = new Promise((resolveCallback) => app.onPythonInitialized = resolveCallback);
 
     // initialize worker
