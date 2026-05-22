@@ -117,6 +117,28 @@
 </head>
 
 <body>
+  <div id="error-console" style="display:none; position:fixed; top:0; left:0; width:100%; max-height:50%; overflow-y:auto; background:rgba(255, 0, 0, 0.9); color:white; font-family:monospace; font-size:12px; z-index:999999; padding:10px; box-sizing:border-box; border-bottom:3px solid black;">
+    <div style="font-weight:bold; margin-bottom:5px; font-size:14px;">🚨 Appfel upptäckt:</div>
+    <pre id="error-console-text" style="margin:0; white-space:pre-wrap;"></pre>
+    <button onclick="document.getElementById('error-console').style.display='none'" style="margin-top:10px; padding:5px 10px; background:white; color:red; border:none; font-weight:bold; cursor:pointer;">Stäng</button>
+  </div>
+  <script>
+    function showError(msg, err) {
+      var consoleDiv = document.getElementById('error-console');
+      var textPre = document.getElementById('error-console-text');
+      if (consoleDiv && textPre) {
+        consoleDiv.style.display = 'block';
+        textPre.innerText += msg + '\n' + (err && err.stack ? err.stack : '') + '\n\n';
+      }
+    }
+    window.onerror = function(message, source, lineno, colno, error) {
+      showError('JS Error: ' + message + ' at ' + source + ':' + lineno + ':' + colno, error);
+      return false;
+    };
+    window.addEventListener('unhandledrejection', function(event) {
+      showError('Unhandled Promise Rejection: ' + event.reason, event.reason);
+    });
+  </script>
   <picture id="splash">
       <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
       <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
