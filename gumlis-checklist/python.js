@@ -6,13 +6,14 @@ let _documentUrl = document.URL;
 // This method is called from Dart on backend.connect()
 // dartOnMessage is called on backend.onMessage
 // it accepts "data" of type JSUint8Array
-globalThis.jsConnect = async function(appId, args, dartOnMessage) {
+globalThis.jsConnect = async function (appId, args, dartOnMessage) {
     let app = {
         "dartOnMessage": dartOnMessage
     };
     console.log(`Starting up Python worker: ${appId}, args: ${args}`);
     _apps[appId] = app;
-    app.worker = new Worker((flet.assetBase || "") + "python-worker.js");
+    app.worker = new Worker((flet.entrypointBaseUrl.endsWith("/") ?
+        flet.entrypointBaseUrl.slice(0, -1) : flet.entrypointBaseUrl) + "/python-worker.js");
 
     var error;
     app.worker.onmessage = (event) => {
@@ -24,12 +25,6 @@ globalThis.jsConnect = async function(appId, args, dartOnMessage) {
         } else {
             app.dartOnMessage(event.data);
         }
-    };
-
-    app.worker.onerror = (event) => {
-        console.error("Worker error:", event);
-        error = "Python worker error: " + (event.message || "Failed to load worker script or importScripts inside worker");
-        app.onPythonInitialized();
     };
 
     let pythonInitialized = new Promise((resolveCallback) => app.onPythonInitialized = resolveCallback);
@@ -56,7 +51,7 @@ globalThis.jsConnect = async function(appId, args, dartOnMessage) {
 
 // Called from Dart on backend.send
 // data is a message serialized to JSUint8Array
-globalThis.jsSend = async function(appId, data) {
+globalThis.jsSend = async function (appId, data) {
     if (appId in _apps) {
         const app = _apps[appId];
         app.worker.postMessage(data);
@@ -64,7 +59,7 @@ globalThis.jsSend = async function(appId, data) {
 }
 
 // Called from Dart on channel.disconnect
-globalThis.jsDisconnect = async function(appId) {
+globalThis.jsDisconnect = async function (appId) {
     if (appId in _apps) {
         console.log(`Terminating Python worker: ${appId}`);
         const app = _apps[appId];

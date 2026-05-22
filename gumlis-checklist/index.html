@@ -1,36 +1,39 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+
+<head>
   <base href="/gumlis-checklist/">
+
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="En varm och kärleksfull checklista för Gumli och familjen.">
+  <meta name="description" content="Flet application.">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Gumli">
+  <meta name="apple-mobile-web-app-title" content="src">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-  <title>Gumlis checklista</title>
+  <title>src</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
     var flet = {
-      pyodide: true,
+      pyodide: false,
       multiView: false,
       noCdn: false,
       webSocketEndpoint: "/ws",
-      entrypointBaseUrl: "/gumlis-checklist/",
-      assetBase: "/gumlis-checklist/",
+      entrypointBaseUrl: "/",
+      assetBase: "/",
       routeUrlStrategy: "path",
-      canvasKitBaseUrl: "canvaskit/",
-      pyodideUrl: "pyodide/pyodide.js",
-      pythonModuleName: "main",
-      webRenderer: "canvaskit",
+      canvasKitBaseUrl: "/canvaskit/",
+      pyodideUrl: "/pyodide/pyodide.js",
+      webRenderer: "auto",
       fontFallbackBaseUrl: "assets/fonts/", // for Noto Emoji, use Google CDN
-      appPackageUrl: "assets/app/app.zip"
+      appPackageUrl: "app.tar.gz"
     }
 
     flet.flutterAppLoaded = new Promise((resolve) => {
@@ -39,113 +42,114 @@
 
     flet.flutterAppLoaded.then((flutterApp) => {
       console.log("Flutter app loaded");
+      if (flet.multiView) {
+        console.log(flutterApp.addView({
+          hostElement: document.querySelector('#view-1'),
+          initialData: {
+            script: 'print("Hello from view 1")',
+            randomValue: Math.floor(Math.random() * 100),
+          },
+          viewConstraints: {
+            //maxWidth: Infinity,
+            maxHeight: Infinity,
+            minHeight: 300,
+            minWidth: 620
+          }
+        }));
+        console.log(flutterApp.addView({
+          hostElement: document.querySelector('#view-2'),
+          initialData: {
+            script: 'print("Hello from view 2")',
+            bar: "baz"
+          },
+          viewConstraints: {
+            minWidth: 620,
+            //maxWidth: 320,
+            //minHeight: 400,
+            maxHeight: 400,
+          }
+        }));
+      }
     });
   </script>
+
+  <script>
+flet.pyodide = true;
+flet.micropipIncludePre = false;
+flet.pythonModuleName = "main";
+flet.noCdn=false;
+flet.webRenderer="auto";
+flet.routeUrlStrategy="path";
+flet.entrypointBaseUrl="/gumlis-checklist/";
+flet.assetBase="/gumlis-checklist/";
+</script>
+
   <script src="python.js"></script>
-  <style id="splash-screen-style">
-    html {
-      height: 100%
-    }
-
-    body {
-      margin: 0;
-      min-height: 100%;
-      background-color: #080F0B;
-          background-size: 100% 100%;
-    }
-
-    .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-
-    .contain {
-      display:block;
-      width:100%; height:100%;
-      object-fit: contain;
-    }
-
-    .stretch {
-      display:block;
-      width:100%; height:100%;
-    }
-
-    .cover {
-      display:block;
-      width:100%; height:100%;
-      object-fit: cover;
-    }
-
-    .bottom {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      -ms-transform: translate(-50%, 0);
-      transform: translate(-50%, 0);
-    }
-
-    .bottomLeft {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-
-    .bottomRight {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #080F0B;
-          }
-    }
-  </style>
-  <script id="splash-screen-script">
-    function removeSplashFromWeb() {
-      document.getElementById("splash")?.remove();
-      document.getElementById("splash-branding")?.remove();
-      document.body.style.background = "transparent";
-    }
-  </script>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 </head>
 
 <body>
-  <div id="error-console" style="display:none; position:fixed; top:0; left:0; width:100%; max-height:50%; overflow-y:auto; background:rgba(255, 0, 0, 0.9); color:white; font-family:monospace; font-size:12px; z-index:999999; padding:10px; box-sizing:border-box; border-bottom:3px solid black;">
-    <div style="font-weight:bold; margin-bottom:5px; font-size:14px;">🚨 Appfel upptäckt:</div>
-    <pre id="error-console-text" style="margin:0; white-space:pre-wrap;"></pre>
-    <button onclick="document.getElementById('error-console').style.display='none'" style="margin-top:10px; padding:5px 10px; background:white; color:red; border:none; font-weight:bold; cursor:pointer;">Stäng</button>
-  </div>
-  <script>
-    function showError(msg, err) {
-      var consoleDiv = document.getElementById('error-console');
-      var textPre = document.getElementById('error-console-text');
-      if (consoleDiv && textPre) {
-        consoleDiv.style.display = 'block';
-        textPre.innerText += msg + '\n' + (err && err.stack ? err.stack : '') + '\n\n';
+  <div id="loading">
+    <style>
+      body {
+        inset: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        position: fixed;
       }
-    }
-    window.onerror = function(message, source, lineno, colno, error) {
-      showError('JS Error: ' + message + ' at ' + source + ':' + lineno + ':' + colno, error);
-      return false;
-    };
-    window.addEventListener('unhandledrejection', function(event) {
-      showError('Unhandled Promise Rejection: ' + event.reason, event.reason);
-    });
-  </script>
-  <picture id="splash">
-      <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
-      <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
-      <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
-  </picture>
-  <script src="flutter_bootstrap.js" async=""></script>
 
+      #loading {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        width: 100%;
+      }
 
+      #loading img {
+        animation: 1s ease-in-out 0s infinite alternate breathe;
+        opacity: .66;
+        transition: opacity .4s;
+      }
 
-</body></html>
+      #loading.main_done img {
+        opacity: 1;
+      }
+
+      #loading.init_done img {
+        animation: .33s ease-in-out 0s 1 forwards zooooom;
+        opacity: .05;
+      }
+
+      @keyframes breathe {
+        from {
+          transform: scale(0.4);
+          opacity: 1.0;
+        }
+
+        to {
+          transform: scale(0.35);
+          opacity: .7;
+        }
+      }
+
+      @keyframes zooooom {
+        from {
+          transform: scale(0.4)
+        }
+
+        to {
+          transform: scale(10)
+        }
+      }
+    </style>
+    <img src="icons/loading-animation.png" alt="Loading..." />
+  </div>
+  <script src="flutter_bootstrap.js" async></script>
+
+  <!-- <h1>View 1</h1>
+  <div id="view-1" style="display: flex; justify-content: center;"></div>
+  <h1>View 2</h1>
+  <div id="view-2"></div> -->
+</body>
+</html>
