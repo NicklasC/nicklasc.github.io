@@ -1,19 +1,31 @@
 'use strict';
 
-// Persistent Service Worker for Gumli
-// Satisfies PWA criteria to allow installing as a standalone app with a home screen icon.
-
-const CACHE_NAME = 'gumli-v2';
-
-self.addEventListener('install', (event) => {
+self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
-});
+  event.waitUntil(
+    (async () => {
+      try {
+        await self.registration.unregister();
+      } catch (e) {
+        console.warn('Failed to unregister the service worker:', e);
+      }
 
-self.addEventListener('fetch', (event) => {
-  // Pass-through fetch handler to ensure installability while keeping resources strictly fresh from network
-  event.respondWith(fetch(event.request));
+      try {
+        const clients = await self.clients.matchAll({
+          type: 'window',
+        });
+        // Reload clients to ensure they are not using the old service worker.
+        clients.forEach((client) => {
+          if (client.url && 'navigate' in client) {
+            client.navigate(client.url);
+          }
+        });
+      } catch (e) {
+        console.warn('Failed to navigate some service worker clients:', e);
+      }
+    })()
+  );
 });
