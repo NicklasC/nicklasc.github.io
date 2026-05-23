@@ -1,11 +1,11 @@
 {
-  "name": "src",
-  "short_name": "src",
+  "name": "Gumli",
+  "short_name": "Gumli",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#0175C2",
-  "description": "Flet - the fastest way to build Flutter apps in Python",
+  "description": "Gumlis Checklist",
   "orientation": "natural",
   "prefer_related_applications": false,
   "icons": [
