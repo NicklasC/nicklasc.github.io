@@ -17,6 +17,10 @@ globalThis.jsConnect = async function (appId, args, dartOnMessage) {
 
     var error;
     app.worker.onmessage = (event) => {
+        if (typeof event.data === "string" && event.data.startsWith("__gumli_startup__:")) {
+            window.gumliStartup?.mark(event.data.substring("__gumli_startup__:".length));
+            return;
+        }
         if (typeof event.data === "string") {
             if (event.data != "initialized") {
                 error = event.data;

@@ -21,6 +21,35 @@
   <link rel="manifest" href="manifest.json">
 
   <script>
+    // Lightweight startup telemetry. Marks are always available to automated
+    // diagnostics, while console output is opt-in via ?debug-startup=1.
+    (() => {
+      const enabled = new URLSearchParams(window.location.search).get('debug-startup') === '1';
+      const startedAt = performance.now();
+      const marks = {};
+
+      window.gumliStartup = {
+        enabled,
+        marks,
+        mark(name) {
+          const elapsed = Math.round((performance.now() - startedAt) * 10) / 10;
+          marks[name] = elapsed;
+          performance.mark(`gumli:${name}`);
+          if (enabled) {
+            console.info(`[GUMLI STARTUP] ${name}: ${elapsed} ms`);
+          }
+          return elapsed;
+        },
+        snapshot() {
+          return { ...marks };
+        }
+      };
+
+      window.gumliStartup.mark('html-start');
+    })();
+  </script>
+
+  <script>
     var flet = {
       pyodide: false,
       multiView: false,
@@ -33,7 +62,7 @@
       pyodideUrl: "/pyodide/pyodide.js",
       webRenderer: "auto",
       fontFallbackBaseUrl: "assets/fonts/", // for Noto Emoji, use Google CDN
-      appPackageUrl: "app.tar.gz"
+      appPackageUrl: "app.tar.gz?build=fe2ebcfe907b0c90"
     }
 
     flet.flutterAppLoaded = new Promise((resolve) => {
@@ -41,6 +70,7 @@
     });
 
     flet.flutterAppLoaded.then((flutterApp) => {
+      window.gumliStartup?.mark('flutter-app-ready');
       console.log("Flutter app loaded");
       if (flet.multiView) {
         console.log(flutterApp.addView({
@@ -146,6 +176,15 @@ flet.assetBase="/gumlis-checklist/";
     <img src="icons/loading-animation.png" alt="Loading..." />
   </div>
   <script src="flutter_bootstrap.js" async></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('flutter_service_worker.js').catch((error) => {
+          console.error('Gumli service worker registration failed:', error);
+        });
+      });
+    }
+  </script>
 
   <!-- <h1>View 1</h1>
   <div id="view-1" style="display: flex; justify-content: center;"></div>
