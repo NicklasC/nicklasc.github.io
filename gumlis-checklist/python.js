@@ -21,6 +21,10 @@ globalThis.jsConnect = async function (appId, args, dartOnMessage) {
             window.gumliStartup?.mark(event.data.substring("__gumli_startup__:".length));
             return;
         }
+        if (event.data?.type === "gumli-family-request") {
+            window.gumliFamilyBridge?.forward(event.data, app.worker);
+            return;
+        }
         if (typeof event.data === "string") {
             if (event.data != "initialized") {
                 error = event.data;
