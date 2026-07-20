@@ -213,6 +213,9 @@ self.receiveCallback = (message) => {
 self.flet_js.receive_callback = self.receiveCallback;
 
 self.onmessage = async (event) => {
+    if (event.data?.type === "gumli-family-response") {
+        return;
+    }
     // run only once
     if (!self.initialized) {
         self.initialized = true;
