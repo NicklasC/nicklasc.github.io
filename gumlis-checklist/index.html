@@ -114,7 +114,7 @@
         debug.lastResponse = {
           ok: Boolean(message.response?.ok),
           error: message.response?.error || null,
-          member: message.response?.member || null
+          member: message.response?.data?.member || message.response?.member || null
         };
         publishDebug();
         const request = pending.get(message.requestId);
@@ -173,7 +173,7 @@
       pyodideUrl: "/pyodide/pyodide.js",
       webRenderer: "auto",
       fontFallbackBaseUrl: "assets/fonts/", // for Noto Emoji, use Google CDN
-      appPackageUrl: "app.tar.gz?build=e0dca93f83a6b649"
+      appPackageUrl: "app.tar.gz?build=291479214f6de688"
     }
 
     flet.flutterAppLoaded = new Promise((resolve) => {
