@@ -1,7 +1,7 @@
 'use strict';
 
 // Replaced with the app archive content hash during deployment.
-const BUILD_VERSION = 'af1a5abd76395548';
+const BUILD_VERSION = '9bcf1b66e28882e0';
 const CACHE_PREFIX = 'gumli-';
 const CACHE_NAME = `${CACHE_PREFIX}${BUILD_VERSION}`;
 const RUNTIME_CDN_HOSTS = new Set([
