@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://oauth2.googleapis.com https://sheets.googleapis.com https://www.googleapis.com https://pypi.org https://files.pythonhosted.org https://cdn.jsdelivr.net https://fonts.gstatic.com; worker-src 'self' blob:; child-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <base href="/kostkalkyl2/">
 
   <meta charset="UTF-8">
@@ -24,15 +26,19 @@
     var flet = {
       pyodide: false,
       multiView: false,
-      noCdn: false,
+      noCdn: true,
       webSocketEndpoint: "/ws",
       entrypointBaseUrl: "/",
       assetBase: "/",
       routeUrlStrategy: "path",
       canvasKitBaseUrl: "canvaskit/",
-      pyodideUrl: "pyodide/pyodide.js",
+      // Default fallback only — `patch_index.py` overrides this with the
+      // resolved per-build URL (CDN or local) at deploy time. The `.mjs`
+      // suffix is required because python-worker.js is a module worker
+      // that loads the runtime via dynamic `import()`. See client/web/python.js.
+      pyodideUrl: "./pyodide/pyodide.mjs",
       webRenderer: "auto",
-      fontFallbackBaseUrl: "assets/fonts/", // for Noto Emoji, use Google CDN
+      fontFallbackBaseUrl: "https://fonts.gstatic.com/s/", // for Noto Emoji, use Google CDN
       appPackageUrl: "app.tar.gz"
     }
 
@@ -77,8 +83,9 @@
 flet.pyodide = true;
 flet.micropipIncludePre = false;
 flet.pythonModuleName = "main";
-flet.noCdn=false;
-flet.webRenderer="auto";
+flet.pyodideUrl="https://cdn.jsdelivr.net/pyodide/v314.0.3/full/pyodide.mjs";
+flet.noCdn=true;
+flet.webRenderer="canvaskit";
 flet.routeUrlStrategy="path";
 flet.entrypointBaseUrl="/kostkalkyl2/";
 flet.assetBase="/kostkalkyl2/";
